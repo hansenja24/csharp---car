@@ -52,7 +52,8 @@ namespace Cars.Models
 
     public bool WorthBuying(int maxPrice)
     {
-      return _price < (maxPrice + 100);
+      return _price;
+      // return _price < (maxPrice + 100);
     }
 
     public static List<string> GetAll()
