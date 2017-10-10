@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Car List</title>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body>
+      <h1>Car List</h1>
+      <ul>
+        @foreach(string car in Model)
+          {
+            <li>@car</li>
+          }
+      </ul>
+
+      <p><a href="/">Add another car</a></p>
+
+    </body>
+  </html>
