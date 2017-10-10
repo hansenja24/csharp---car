@@ -3,20 +3,52 @@ using System.Collections.Generic;
 
 class Car
 {
-  public string MakeModel;
-  public int Price;
-  public int Miles;
+  private string _makeModel;
+  private int _price;
+  private int _miles;
 
-  public Car(string carModel, int carPrice, int carMiles = 100)
+  // public Car(string carModel, int carPrice, int carMiles = 100)
+  // {
+  //   MakeModel = carModel;
+  //   Price = carPrice;
+  //   Miles = carMiles;
+  // }
+
+  public void SetMakeModel(string newMakeModel)
   {
-    MakeModel = carModel;
-    Price = carPrice;
-    Miles = carMiles;
+    _makeModel = newMakeModel;
+  }
+  public string GetMakeModel()
+  {
+    return _makeModel;
+  }
+
+  public void SetPrice(int newPrice)
+  {
+    if (newPrice >= 0) {
+      _price = newPrice;
+    }
+    else {
+      Console.WriteLine("The price for this item is not valid.");
+    }
+  }
+  public int GetPrice()
+  {
+    return _price;
+  }
+
+  public void SetMiles(int newMiles)
+  {
+    _miles = newMiles;
+  }
+  public int GetMiles()
+  {
+    return _miles;
   }
 
   public bool WorthBuying(int maxPrice)
   {
-    return Price < (maxPrice + 100);
+    return _price < (maxPrice + 100);
   }
 }
 
@@ -24,10 +56,25 @@ public class Program
 {
   public static void Main()
   {
-    Car porsche = new Car("2014 Porsche 911", 114991, 7864);
-    Car ford = new Car("2011 Ford F450", 55995, 14241);
-    Car lexus = new Car("2013 Lexus RX 350", 44700, 20000);
-    Car mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
+    Car porsche = new Car();
+    porsche.SetMakeModel("2014 Porsche 911");
+    porsche.SetPrice(114991);
+    porsche.SetMiles(7864);
+
+    Car ford = new Car();
+    ford.SetMakeModel("2011 Ford F450");
+    ford.SetPrice(55995);
+    ford.SetMiles(14241);
+
+    Car lexus = new Car();
+    lexus.SetMakeModel("2013 Lexus RX 350");
+    lexus.SetPrice(44700);
+    lexus.SetMiles(20000);
+
+    Car mercedes = new Car();
+    mercedes.SetMakeModel("Mercedes Benz CLS550");
+    mercedes.SetPrice(39900);
+    mercedes.SetMiles(37979);
 
     List<Car> Cars = new List<Car>() { porsche, ford, lexus, mercedes };
 
@@ -51,7 +98,7 @@ public class Program
 
     foreach(Car automobile in CarsMatchingSearch)
     {
-      Console.WriteLine(automobile.MakeModel);
+      Console.WriteLine(automobile.GetMakeModel());
     }
   }
 }
