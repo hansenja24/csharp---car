@@ -6,16 +6,16 @@ namespace Cars.Models
   public class Car
   {
     private string _makeModel;
-    private int _price;
-    private int _miles;
+    private string _price;
+    private string _miles;
 
     private static List<string> _instances = new List<string> {};
 
     public Car(string carModel, string carPrice, string carMiles)
     {
       _makeModel = carModel;
-      _price = int.Parse(carPrice);
-      _miles = int.Parse(carMiles);
+      _price = carPrice;
+      _miles = carMiles;
     }
 
     public void SetMakeModel(string newMakeModel)
@@ -27,34 +27,29 @@ namespace Cars.Models
       return _makeModel;
     }
 
-    public void SetPrice(int newPrice)
+    public void SetPrice(string newPrice)
     {
-      if (newPrice >= 0) {
-        _price = newPrice;
-      }
-      else {
-        Console.WriteLine("The price for this item is not valid.");
-      }
+      _price = newPrice;
     }
-    public int GetPrice()
+    public string GetPrice()
     {
       return _price;
     }
 
-    public void SetMiles(int newMiles)
+    public void SetMiles(string newMiles)
     {
       _miles = newMiles;
     }
-    public int GetMiles()
+    public string GetMiles()
     {
       return _miles;
     }
 
-    public bool WorthBuying(int maxPrice)
-    {
-      return _price;
-      // return _price < (maxPrice + 100);
-    }
+    // public bool WorthBuying(int maxPrice)
+    // {
+    //   // return _price;
+    //   return _price < (maxPrice + 100);
+    // }
 
     public static List<string> GetAll()
     {
@@ -62,7 +57,7 @@ namespace Cars.Models
     }
     public void Save()
     {
-      _instances.Add(_makeModel);
+      _instances.Add(("Make and Model: " + _makeModel + " Price: $" + _price + " Miles: " + _miles));
     }
   }
 
